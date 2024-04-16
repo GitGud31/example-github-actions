@@ -6,14 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          npm install cypress
       - name: Run Python script
         run: python jobs.py
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Run tests
         run: |
-          pip install pytest
-          pytest test_calculator.py
+          npx cypress run
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
