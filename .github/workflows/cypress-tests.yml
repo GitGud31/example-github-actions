@@ -1,0 +1,12 @@
+name: Cypress Tests
+run-name: ${{ github.actor }} is running Cypress tests
+on: [push]
+jobs:
+  basic-ubuntu-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress tests
+        run: npx cypress run
